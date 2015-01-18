@@ -29,7 +29,7 @@ public class Application {
 		return new MessageService() {
 			
 			public String getMessage() {
-				return "Hello world!";
+				return "Hello world! haha";
 			}
 		};
 	}

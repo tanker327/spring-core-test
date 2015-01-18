@@ -7,9 +7,11 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
+import com.tanker.springtest.otherpkg.FackService;
+
 
 @Configuration
-@ComponentScan
+@ComponentScan(basePackages="com.tanker.springtest")
 public class Application {
 	
 	@Bean
@@ -38,5 +40,11 @@ public class Application {
 		ApplicationContext context = new AnnotationConfigApplicationContext(Application.class);
 		MessagePrinter printer = context.getBean(MessagePrinter.class);
 		printer.printMessage();
+		
+		
+		//Use @ComponentScan(basePackages="com.tanker.springtest")
+		//to get commponent from specified path
+		FackService fService = context.getBean(FackService.class);
+		fService.sayHello();
 	}
 }
